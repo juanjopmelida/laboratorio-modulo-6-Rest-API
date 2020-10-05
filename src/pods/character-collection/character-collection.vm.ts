@@ -5,4 +5,5 @@ export interface CharacterEntityVm {
   species: string;
   type: string;
   gender: string;
+  image: string;
 }

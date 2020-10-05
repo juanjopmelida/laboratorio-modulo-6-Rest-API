@@ -29,7 +29,7 @@ module.exports = merge.strategy({
     stats: 'minimal',
     hot: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'https://rickandmortyapi.com',
     },
   },
   module: {

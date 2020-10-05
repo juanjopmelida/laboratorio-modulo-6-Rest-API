@@ -31,6 +31,7 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
       <CardContent>
         <div className={classes.content}>
           <CardMedia
+            image={character.image}
             title={character.name}
             style={{ height: 0, paddingTop: '56.25%' }}
           />

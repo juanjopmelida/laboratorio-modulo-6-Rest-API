@@ -29,15 +29,5 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     handleLoadCharacterCollection();
   }, []);
 
-  const handleSave = async (character: Character) => {
-    const apiCharacter = mapCharacterFromVmToApi(character);
-    const success = await api.saveCharacter(apiCharacter);
-    if (success) {
-      history.goBack();
-    } else {
-      alert('Error on save character');
-    }
-  };
-
-  return <CharacterComponent character={character} onSave={handleSave} />;
+  return <CharacterComponent character={character}/>;
 };

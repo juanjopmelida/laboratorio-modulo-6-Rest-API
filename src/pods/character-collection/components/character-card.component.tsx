@@ -15,15 +15,14 @@ import * as classes from './character-card.styles';
 
 interface Props {
   character: CharacterEntityVm;
-  onEdit: (id: number) => void;
-  onDelete: (id: number) => void;
+  onClick: (id: number) => void;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const { character, onEdit, onDelete } = props;
+  const { character, onClick } = props;
 
   return (
-    <Card>
+    <Card onClick={() => onClick(character.id)}>
       <CardHeader
         title={character.name}
         subheader={character.species}
@@ -40,14 +39,6 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
           </Typography>
         </div>
       </CardContent>
-      <CardActions>
-        <IconButton onClick={() => onEdit(character.id)}>
-          <EditIcon />
-        </IconButton>
-        <IconButton onClick={() => onDelete(character.id)}>
-          <DeleteIcon />
-        </IconButton>
-      </CardActions>
     </Card>
   );
 };

@@ -20,6 +20,7 @@ export const CharacterCollectionContainer = () => {
     <CharacterCollectionComponent
       characterCollection={characterCollection}
       onClick={handleClick}
+      isDetail={false}
     />
   );
 };

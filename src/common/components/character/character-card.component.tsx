@@ -8,21 +8,24 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import IconButton from '@material-ui/core/IconButton/IconButton';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { CharacterEntityVm } from '../character-collection.vm';
+import BackIcon from '@material-ui/icons/ArrowBackIos';
+import ViewIcon from '@material-ui/icons/Details';
+import { CharacterEntityVm } from '../../../pods/character-collection/character-collection.vm';
 import * as classes from './character-card.styles';
+import { linkRoutes } from 'core/router';
 
 interface Props {
   character: CharacterEntityVm;
   onClick: (id: number) => void;
+  isDetail: boolean;
 }
 
 export const CharacterCard: React.FunctionComponent<Props> = (props) => {
-  const { character, onClick } = props;
+  const { character, onClick, isDetail } = props;
+  const history = useHistory();
 
   return (
-    <Card onClick={() => onClick(character.id)}>
+    <Card>
       <CardHeader
         title={character.name}
         subheader={character.species}
@@ -39,6 +42,17 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
           </Typography>
         </div>
       </CardContent>
+      <CardActions>
+          {isDetail ? (
+            <IconButton onClick={() => history.push(linkRoutes.characterCollection)}>
+              <BackIcon />
+            </IconButton>
+          ) : (
+            <IconButton onClick={() => onClick(character.id)}>
+              <ViewIcon />
+            </IconButton>
+          )}
+      </CardActions>
     </Card>
   );
 };

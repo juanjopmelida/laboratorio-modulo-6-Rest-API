@@ -2,32 +2,35 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import * as api from './api';
 import { createEmptyCharacter, Character } from './character.vm';
-import { mapCharacterFromApiToVm, mapCharacterFromVmToApi } from './character.mappers';
-import { Lookup } from 'common/models';
+import { mapCharacterFromApiToVm } from './character.mappers';
 import { CharacterComponent } from './character.component';
+import { linkRoutes } from 'core/router';
 
 export const CharacterContainer: React.FunctionComponent = (props) => {
-  const [character, setCharacter] = React.useState<Character>(createEmptyCharacter());
-  const [characterCollection, setCharacterCollection] = React.useState<api.Character[]>();
+  const [character, setCharacter] = React.useState<Character>(
+    createEmptyCharacter()
+  );
   const { id } = useParams();
   const history = useHistory();
 
-  const handleLoadCharacterCollection = async () => {
-    const apiCharacterCollection = await api.getCharacterCollection();
-    setCharacterCollection(apiCharacterCollection);
-  };
-
-  const handleLoadCharacter= async () => {
+  const handleLoadCharacter = async () => {
     const apiCharacter = await api.getCharacter(id);
     setCharacter(mapCharacterFromApiToVm(apiCharacter));
   };
 
+  const handleClick = () => {
+    history.push(linkRoutes.characterCollection);
+  };
+
   React.useEffect(() => {
-    if (id) {
-      handleLoadCharacter();
-    }
-    handleLoadCharacterCollection();
+    handleLoadCharacter();
   }, []);
 
-  return <CharacterComponent character={character}/>;
+  return (
+    <CharacterComponent
+      character={character}
+      onClick={handleClick}
+      isDetail={true}
+    />
+  );
 };

@@ -37,9 +37,31 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
             title={character.name}
             style={{ height: 0, paddingTop: '56.25%' }}
           />
-          <Typography variant="subtitle1" gutterBottom>
-            {character.species}
-          </Typography>
+          {isDetail &&
+            <div className="profile-details">
+              <h2>Character Details</h2>
+              <ul>
+                <li>
+                  <strong>Name:</strong> { character.name }
+                </li>
+                <li>
+                  <strong>Status:</strong> { character.status }
+                </li>
+                <li>
+                  <strong>Gender:</strong> { character.gender }
+                </li>
+                <li>
+                  <strong>Species:</strong> { character.species }
+                </li>
+                <li>
+                  <strong>Location:</strong> { character.location?.name }
+                </li>
+                <li>
+                  <strong>Originally From:</strong> { character.origin?.name }
+                </li>
+              </ul>
+            </div>
+          }
         </div>
       </CardContent>
       <CardActions>

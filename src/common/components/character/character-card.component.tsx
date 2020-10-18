@@ -12,7 +12,7 @@ import BackIcon from '@material-ui/icons/ArrowBackIos';
 import ViewIcon from '@material-ui/icons/Details';
 import { CharacterEntityVm } from '../../../pods/character-collection/character-collection.vm';
 import * as classes from './character-card.styles';
-import { linkRoutes } from 'core/router';
+import { linkRoutes } from '../../../core/router';
 
 interface Props {
   character: CharacterEntityVm;

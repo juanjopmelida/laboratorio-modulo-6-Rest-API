@@ -30,7 +30,6 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     <CharacterComponent
       character={character}
       onClick={handleClick}
-      isDetail={true}
     />
   );
 };

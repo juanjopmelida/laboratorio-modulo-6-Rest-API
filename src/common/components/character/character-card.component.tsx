@@ -5,14 +5,12 @@ import CardHeader from '@material-ui/core/CardHeader/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar/Avatar';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 import BackIcon from '@material-ui/icons/ArrowBackIos';
 import ViewIcon from '@material-ui/icons/Details';
 import { CharacterEntityVm } from '../../../pods/character-collection/character-collection.vm';
 import * as classes from './character-card.styles';
-import { linkRoutes } from 'core/router';
+import { linkRoutes } from '../../../core/router';
 
 interface Props {
   character: CharacterEntityVm;
@@ -35,7 +33,7 @@ export const CharacterCard: React.FunctionComponent<Props> = (props) => {
           <CardMedia
             image={character.image}
             title={character.name}
-            style={{ height: 0, paddingTop: '56.25%' }}
+            style={{ paddingTop: '15%', width: '15%' }}
           />
           {isDetail &&
             <div className="profile-details">

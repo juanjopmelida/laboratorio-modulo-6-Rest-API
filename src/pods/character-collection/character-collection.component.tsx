@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Button from '@material-ui/core/Button';
-import { CharacterEntityVm } from './character-collection.vm';
+import { Character } from '../character/character.vm';
 import { CharacterCard } from '../../common/components/character/character-card.component';
 import * as classes from './character-collection.styles';
 
 interface Props {
-  characterCollection: CharacterEntityVm[];
+  characterCollection: Character[];
   onClick: (id: number) => void;
   isDetail: boolean;
 }

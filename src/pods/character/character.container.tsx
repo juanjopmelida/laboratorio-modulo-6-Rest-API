@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import * as api from './api';
 import { createEmptyCharacter, Character } from './character.vm';
-import { mapCharacterFromApiToVm } from './character.mappers';
+import { mapFromApiToVm } from './character.mapper';
 import { CharacterComponent } from './character.component';
 import { linkRoutes } from 'core/router';
 
@@ -15,7 +15,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
 
   const handleLoadCharacter = async () => {
     const apiCharacter = await api.getCharacter(id);
-    setCharacter(mapCharacterFromApiToVm(apiCharacter));
+    setCharacter(mapFromApiToVm(apiCharacter));
   };
 
   const handleClick = () => {

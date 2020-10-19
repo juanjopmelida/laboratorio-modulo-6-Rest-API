@@ -1,21 +1,16 @@
-import { CharacterEntityApi } from './character-collection.api-model';
-import { mockCharacterCollection } from './character-collection.mock-data';
+import { Character } from '../../character/api/character.api-model';
 
-let characterCollection = [...mockCharacterCollection];
 const characterListUrl = '/api/character/';
 
 export const getCharacterCollection = async (): Promise<
-  CharacterEntityApi[]
+  Character[]
 > => {
-  const response = await fetch(`${process.env.API_CHARACTERS_URL}${characterListUrl}`);
+  const response = await fetch(
+    `${process.env.API_CHARACTERS_URL}${characterListUrl}`
+  );
   if (response.ok) {
     return await response.json();
   } else {
     throw Error(response.statusText);
   }
-};
-
-export const deleteCharacter = async (id: number): Promise<boolean> => {
-  characterCollection = characterCollection.filter((h) => h.id !== id);
-  return true;
 };

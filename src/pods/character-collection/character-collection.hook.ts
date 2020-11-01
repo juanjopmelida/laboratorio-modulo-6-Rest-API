@@ -11,7 +11,9 @@ export const useCharacterCollection = () => {
 
   const loadCharacterCollection = () => {
     getCharacterCollection().then((result) =>
-      setCharacterCollection(mapToCollection(result.results, mapFromApiToVm))
+    {
+      setCharacterCollection(mapToCollection(result, mapFromApiToVm))
+    }
     );
   };
 

@@ -1,5 +1,5 @@
-import { Character } from './character.api-model';
 import Axios from 'axios';
+import { Character } from './character.api-model';
 
 const characterListUrl = '/api/character/';
 

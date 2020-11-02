@@ -17,4 +17,5 @@ export interface CharacterEntityVm {
   episode: string[];
   url: string;
   created: string;
+  comments:string,
 }
